@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/header %>
+    <% include partials/menu %>
+
+      <div class="section-container tracking-index">
+
+        <h3 id="userRole">List of Tracking</h3>
+        <div id="tracking" class="tabcontent">
+          <table id="trackingListData" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>tracking_no</th>
+                <th>lp_user_id</th>
+                <th>sp_user_id</th>
+                <th>lp_name</th>
+                <th>lp_phoneNo</th>
+                <th>sp_name</th>
+                <th>sp_mobile_no</th>
+                <th>pick_up_date</th>
+                <th>pick_up_time</th>
+                <th>budget</th>
+                <th>km_approx</th>
+                <th>body</th>
+                <th>capiacty</th>
+                <th>pick_city</th>
+                <th>pick_state</th>
+                <th>pick_pin</th>
+
+                <th>pick_add</th>
+                <th>drop_city</th>
+                <th>drop_state</th>
+                <th>drop_pin</th>
+                <th>drop_add</th>
+                <th>notes_meterial_des</th>
+                <th>sp_note</th>
+                <th>payment_type</th>
+
+                <th>advance_percentage</th>
+                <th>sp_quote</th>
+                <th>truck</th>
+                <th>vehicle_type</th>
+                <th>body_type</th>
+
+                <th>driver</th>
+                <th>driver_phone_no</th>
+                <th>bid_status</th>
+
+                <th>is_trip_withdrawn</th>
+                <th>is_truck_reached</th>
+                <th>is_shipment_picked_up</th>
+                <th>is_shipment_in_transit</th>
+                <th>is_shipment_delevered</th>
+                <th>is_truck_unloaded</th>
+                <th>platform_charges</th>
+                <th>sp_current_lat</th>
+                <th>sp_current_long</th>
+                <th>is_lp_rating_done</th>
+                <th>is_sp_rating_done</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
+      </div>
+</body>
+<% include partials/script %>
+  <script src="javascripts/tracking.js"></script>
+
+</html>

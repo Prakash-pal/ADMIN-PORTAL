@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+ <% include partials/header %>
+    <% include partials/menu %>
+<div class="section-container page-container">    
+ <div class="manage-user-container">
+  <div class="manage-user-left">
+   <p>Create Admin User</p>
+   <form class="formsubmit" onsubmit='return onCreateAdmin(this)'>
+   <input id="admin_user_name" name='admin_user_name' type="text" placeholder='Enter First & Last Name' required><br>
+   <input id="email_id" name='email_id' type="email" placeholder='Enter Email Address' required><br>
+    <input id="password" name='password' placeholder='Set Password' type="password" required><br>
+    <button class="btn btn-info btn-lg sign-in" id="Create" type='submit'>Create</button>
+  </form>
+  </div>
+  <div class="manage-user-right">
+    <p>Delete Admin User</p>
+    <select name="user_details" id="user_details">
+    </select>
+     <button class="btn btn-info btn-lg sign-in" id="Delete">Delete</button>
+  </div>
+  <div class="clear"></div>
+  <hr>
+  <div class="manage-user-footer">
+    <div class="manage-user-footer-left">
+     <h6>*Admin Privileges</h6>
+     <p>-Add Prifiles and their details</p>
+     <p>-Update Profiles and their details</p>
+     <p>-Active Profiles</p>
+     <p>-Deactive Profiles</p>
+    </div>
+    <div class="manage-user-footer-right">
+      <h6>*Super Admin Privileges</h6>
+      <p>-Admin Privileges</p>
+      <p>-Create & Delete FMT Admin Users</p>
+      <p>-Set Privileges</p>
+    </div>
+    <div class="clear"></div>
+ </div>
+  
+</div>
+
+</body>
+<% include partials/script %>
+<script src="javascripts/manageUsers.js"></script>
+</html>

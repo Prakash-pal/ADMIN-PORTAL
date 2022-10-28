@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+<% include partials/header %>
+<% include partials/menu %>
+
+<div class="section-container trip-posted-index"> 
+   <h3 id="userRole">List of Trip Posted</h3>
+  <div id="TripPosted" class="tabcontent">
+    <table id="TripPostedData" class="display" style="width:100%">
+      <thead>
+        <tr>
+            <th>user_id</th>
+            <th>trip_date</th>
+            <th>trip_start_time</th>
+            <th>trip_budget</th>
+            <th>revised_trip_budget_one</th>
+            <th>revised_trip_budget_two</th>
+            <th>trip_status</th>
+            <th>body_type</th>
+            <th>capacity</th>
+            <th>pick_add</th>
+            <th>pick_pin_code</th>
+            <th>pick_city</th>
+
+            <th>pick_state</th>
+            <th>pick_country</th>
+            <th>drop_add</th>
+            <th>drop_pin_code</th>
+            <th>drop_city</th>
+            <th>drop_state</th>
+
+            <th>drop_country</th>
+            <th>notes_meterial_des</th>
+            <th>customer_count</th>
+            <th>payment_type</th>
+            <th>trip_id</th>
+            <th>trip_posted_at</th>
+
+            <th>sp_name</th>
+            <th>phone_number</th>
+            <th>alternate_ph_no</th>
+        </tr>
+    </thead>
+  </table>
+  </div>
+  
+</div>
+</body>
+<% include partials/script %>
+<script src="javascripts/tripPosted.js"></script>
+</html>

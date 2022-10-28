@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+
+<div class="">    
+ <div class="login-container">
+  <div class="login-left">
+    <input id="userName" name='user_name' type="text" placeholder='User Name' required><br>
+    <input id="passWord" name='Password' placeholder='Password' type="password" required><br>
+    <button class="btn btn-info btn-lg sign-in" id="signIn">Sign In</button>
+
+  </div>
+  <div class="login-right">
+    <h2>FindMyTruck</h2>
+    <h2>Admin Dashboard</h2>
+    <img alt="logo" src="img/logo.jpeg">
+  </div>
+ </div>
+  
+</div>
+
+</body>
+<% include partials/loginscript %>
+<script src="javascripts/login.js"></script>
+</html>

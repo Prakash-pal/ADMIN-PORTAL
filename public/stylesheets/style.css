@@ -1,0 +1,718 @@
+body {
+  font-family: 'Poppins';
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-weight: bold;
+}
+.navbarlist-nav  li a {
+    color: black;
+}
+
+  .navbarlist-nav  li a:hover {
+      color: #1f6997 !important;
+  }
+
+  .navbarlist-nav .active>a {
+    color: #1f6997 !important;
+    font-weight: bold;
+  }
+  .navbarlist-nav .active {
+    border-left: 4px solid #1f6997;
+  }
+
+  
+  .navbarlist-nav li {
+    background: #57b8ff;
+    margin-bottom: 5px;
+    padding: 5px 5px 1px 5px;
+    cursor: pointer;
+  }
+  /* .navbarlist-nav li img{
+    margin-right: 10px;
+  } */
+  .navbar-container ul{
+    list-style: none;
+    padding: 0;
+
+}
+.navbar-container{
+    width: 18%;
+    background: #eef7fd;
+}
+
+.sub-navlist li{
+    background: #e4efff;
+}
+.sub-navlist li a{
+    margin-left: 44px;
+}
+.navlist .sub-navlist{
+  display: none;
+}
+.section-container{
+  margin-top: 70px;
+  float: left;
+}
+
+
+  .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    background: #E4F0FF;
+    height: 54px;
+    color: black;
+    z-index: 105;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 0px 0 rgb(0 0 0 / 0%);
+
+}
+.top-bar h4{
+    display: inline-block;
+    padding: 7px;
+    
+}
+.top-bar p{
+  display: inline-block;
+  /* float: right; */
+  padding: 0px 8px;
+}
+.clear{
+    clear: both;
+}
+
+.truck-owner-head div{
+  float: left;
+}
+.truck-owner-head h3{
+  margin: 4px 0;
+}
+.card{
+    margin: 0 14px;
+    background: #E4F0FF;
+    padding: 8px 28px;
+    border-radius: 4px;
+}
+
+.card h5{
+  text-align: center;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 13px;
+  transition: 0.3s;
+  font-size: 14px;
+  margin: 12px 2px;
+  border-radius: 2px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #56B8FF;
+  /* border-bottom: 2px solid #1f6997;
+  font-weight: bold; */
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #56B8FF;
+  border-bottom: 2px solid #1f6997;
+  font-weight: bold;
+}
+
+/* Style the tab content */
+.tabcontent {
+  padding: 6px 0;
+  border-top: none;
+}
+.truckowner-details .tabcontent {
+ display: none;
+}
+.tabcontent thead{
+  background: #57B8FF;
+}
+
+.tabcontent tbody tr td{
+  box-shadow: none !important;
+}
+.tabcontent tbody td{
+  border-top: none !important;
+}
+.back-btn{
+  background: #707070;
+    border: none;
+    color: white;
+    padding: 4px 20px;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+.update-btn{
+  background: #1C6899;
+    border: none;
+    color: white;
+    padding: 4px 20px;
+    border-radius: 2px;
+}
+
+table thead tr, table tbody tr{
+  font-size: 10px;
+}
+
+
+.menu-icon{
+  margin-left: 12px;
+  cursor: pointer;
+}
+.navbar-container.open {
+  display: block;
+  width: 18%;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+.navbar-container {
+  width: 0px;
+  position: fixed;
+  top: 54px;
+  left: 0;
+  bottom: 0;;
+  overflow: hidden;
+  -webkit-transition: all .1s ease-in;
+  -moz-transition: all .1s ease-in;
+  -ms-transition: all .1s ease-in;
+  -o-transition: all .1s ease-in;
+  transition: all .1s ease-in;
+  z-index: 105;
+}
+.ratin_view{
+  border: 1px solid #57B8FF;
+    border-radius: 3px;
+    padding: 5px;
+    width: 40px;
+}
+.ratin_view img{
+  margin-top: -4px;
+}
+
+table input{
+  border: 1px solid #57B8FF;
+  width: 80px;
+}
+table select{
+  border: 1px solid #57B8FF;
+}
+table button{
+  border: 1px solid #57B8FF;
+  border-radius: 3px;
+}
+.delete-button button{
+  color: red;
+}
+.update-button button{
+  color: #57b8ff;
+}
+
+.adhaar_number_view, .pan_number_view, .dl_number_view{
+  position: relative;
+}
+.dl_number_view .checkbox{
+  position: absolute;
+    top: -1px;
+    right: 0;
+    left: 58px;
+    width: 23px;
+}
+
+.adhaar_number_view input, .pan_number_view input{
+
+    width: 140px;
+}
+.adhaar_number_view .checkbox, .pan_number_view .checkbox{
+  position: absolute;
+  top: -1px;
+  right: 37px;
+  width: 23px;
+}
+.adhaar_number_view img, .pan_number_view img{
+  position: absolute;
+    top: 0px;
+    right: 22px;
+    width: 18px;
+    cursor: pointer;
+}
+.adhaar_number_view .previewImg, .pan_number_view .previewImg{
+  position: absolute;
+    top: 0px;
+    right: 2px;
+    width: 18px;
+    cursor: pointer;
+}
+#loadDetails table tbody td:nth-child(19){
+  background-color: #CCCCCC;
+}
+#loadDetailsId{
+  color: #57B8FF;
+}
+#loadDetails .dataTables_length, #loadDetails #loadDetailsData_filter, #loadDetails .dataTables_info, #loadDetails .dataTables_paginate{
+
+}
+.section-container{
+  padding: 0 10px;
+}
+.headingProfile{
+  display: inline-block;
+}
+button.addBtn{
+  float: right !important;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px 13px;
+  transition: 0.3s;
+  font-size: 14px;
+  margin: 12px 6px;
+  border-radius: 2px;
+}
+
+.modal form input, .modal form select {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+button[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#formsubmit .disabled-input {
+  width: 6%;
+  /* background-color: transparent; */
+  box-shadow: none;
+  outline: none;
+  border-width: 1px;
+  margin-right: -6px;
+  padding: 8px 0;
+}
+
+#formsubmit .enabled-textbox {
+    /* border: 1px solid #999; */
+    /* border-left-width: 0; */
+    width: 94%;
+    border-radius: 0 4px 4px 0;
+}
+
+#formsubmit .enabled-textbox:focus {
+outline-offset: 0;
+outline: none;
+}
+.section-container .container{
+  width: auto;
+}
+div[data-toggle="tooltip"]{
+  cursor: pointer;
+}
+.dataTables_filter{
+  float: left !important;
+  margin-left: 130px;
+  margin-top: -5px;
+}
+.dataTables_length{
+  /* width: 57px !important; */
+}
+.navbar-container .navlist-head span{
+  border: 1px solid #1C6899;
+    padding: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.navbar-container .navlist-head img{
+  width: 14px;
+  height: 14px;
+  vertical-align: super;
+}
+
+.navbar-container .navlist-head a{
+  vertical-align: 6px;
+}
+.navbar-container icon {
+vertical-align: middle;
+}
+
+
+.section-container h3.title{
+  margin-left: 8px;
+}
+#TruckDetailsData .rc_book_view, #TruckDetailsData .vehicle_insurance_view, .cancelled_cheque_view{
+  cursor: pointer;
+}
+div.dashboard-container{
+ width: 100%;
+}
+.dashboard-header{
+  float: left;
+  width: 33.33%;
+
+}
+.dashboard-header-container{
+    background-color: #eef7fd;
+    margin: 12px;
+    padding: 8px 18px;
+    border-radius: 5px;
+}
+.dashboard-header .dashboard-header-head span {
+  border: 1px solid #1C6899;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+.dashboard-header .dashboard-header-head img {
+  width: 18px;
+    height: 18px;
+    vertical-align: super;
+}
+.dashboard-header .dashboard-header-head label {
+     /* width: 14px; */
+    /* height: 14px; */
+    vertical-align: super;
+    /* vertical-align: bottom; */
+    font-size: 28px;
+    font-weight: 700;
+}
+.dashboard-header hr{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid #ffffff;
+}
+.dashboard-header-section{
+  font-size: 14px;
+  margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dashboard-header-section li{
+  padding: 2px 0;
+}
+.dashboard-header-section span{
+  color: #000000;
+}
+.dashboard-header-section label{
+  color: #337ab7;
+}
+#columnchart_material div{
+  position: relative !important;
+}
+.dashboard-section{
+  margin-top: 10px;
+}
+.dashboard-section-tabs .tabs{
+  float: left;
+  background: #E4F0FF;
+  margin: 0 6px;
+  padding: 4px 7px 0px 6px;
+  width: 166px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.dashboard-section-tabs .tabs.active{
+  background: #57b8ff;
+}
+#columnchart_material{
+  margin: 0px 7px;
+}
+
+
+
+.tabs span {
+    border: 1px solid #1C6899;
+    padding: 4px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.tabs img {
+  width: 14px;
+  height: 14px;
+  vertical-align: super;
+}
+.tabs label {
+  vertical-align: super;
+  font-size: 16px;
+  color: #337ab7;
+  cursor: pointer;
+}
+
+.dashboard-section-tabs select {
+  width: 128px;
+    padding: 8px 20px;
+    margin: 0px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#imagePreview .modal-body{
+  align-content: center;
+  text-align: center;
+}
+
+#imagePreview .modal-body img{
+ 
+}
+
+
+/* Jquery popip */
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{
+  text-shadow:none !important;
+}
+
+
+
+
+
+#uploadImageForm{
+  width:auto;
+}
+.alert{
+  text-align:center;
+}
+
+#blah{  
+  max-height:256px;
+  height:auto;
+  width:auto;
+  display:block;
+  margin-left: auto;
+   margin-right: auto;
+  padding:5px;
+}
+#img_contain{
+  border-radius:5px;
+  /*  border:1px solid grey;*/
+  margin-top:20px;
+  width:auto;  
+}
+#inputGroupFile01{
+  width: auto;
+}
+#uploadImageSubmit{
+  width: auto;
+  margin: 19px 43%;
+}
+.imgInp{  
+  width:150px;
+  margin-top:10px;
+  padding:10px;
+  background-color:#d3d3d3;  
+}
+.loading{
+   animation:blinkingText ease 2.5s infinite;
+}
+.custom-file-label{
+  cursor:pointer;
+}
+
+.login-container{
+  border: 1px solid gray;
+  margin: 50px;
+  border-radius: 10px;
+  height: 450px;
+}
+.login-left{
+  width: 50%;
+  float: left;
+  border-right: 1px solid gray;
+  height: 448px;
+  padding: 160px 77px;
+}
+.login-left input{
+  width: 100%;
+  padding: 6px;
+  margin-top: 14px;
+}
+.login-left .sign-in{
+  font-size: 14px;
+  padding: 5px 13px;
+  text-align: center;
+  display: block;
+  margin: 6px auto;
+}
+.login-right{
+  width: 50%;
+  float: left;
+  height: 448px;
+  background-image: linear-gradient(to right, rgba(203, 220, 230,0.2), rgba(203, 220, 230,1));
+  padding: 40px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+} 
+.login-right h2{
+  text-align: center;
+  padding: 0;
+  margin: 0;
+
+}
+.login-right img{
+  height: 228px;
+    display: block;
+    /* align-content: center; */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    margin-top: 20px;
+
+}
+
+
+.navbar-profile ul.nav > li > a {
+  color: #777;
+  padding-top: 15px;
+  padding-bottom: 8px;
+  line-height: 20px;
+}
+.top-bar .nav>li>a:focus, .top-bar .nav>li>a:hover{
+  text-decoration: none;
+    background-color: transparent;
+}
+.top-bar .nav .open>a, .top-bar .nav .open>a:focus, .top-bar .nav .open>a:hover{
+  background-color: transparent;
+}
+
+.navbar-profile ul.nav > li .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+.dropdown-menu a{
+  cursor: pointer;
+}
+
+.sweet-alert h2{
+  font-size: 20px !important;
+  margin: 1px 0 !important;
+}
+.sweet-alert button{
+  margin: 13px 5px 0 5px !important;
+  padding: 5px 28px !important;
+  font-size: 15px !important;
+}
+
+.page-container{
+  width: 100%;
+}
+.manage-user-left, .manage-user-right{
+  width: 46%;
+    float: left;
+    margin: 20px 2%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.manage-user-left p{
+ 
+  background: #57b8ff;
+  border-bottom: 2px solid #1f6997;
+  border-radius: 4px 4px 0 0;
+  padding: 6px;
+  text-align: center;
+  color: black;
+
+}
+.manage-user-right p{
+  background: #E4F0FF;
+  border-radius: 4px 4px 0 0;
+  padding: 6px;
+  text-align: center;
+
+}
+
+.manage-user-left input, .manage-user-right select{
+  padding: 7px;
+  margin: 15px 5% 0px 5%;
+  width: 90%;
+}
+.manage-user-left button, .manage-user-right button{
+  border: none;
+  padding: 5px 12px;
+  font-size: 16px;
+  float: right;
+  margin: 18px 5%;
+}
+.manage-user-left button{
+  background: #1f6997;
+  border: none;
+  padding: 5px 12px;
+  font-size: 16px;
+  float: right;
+  margin: 18px 5%;
+  width: auto;
+}
+.manage-user-right button{
+  background: red;
+  border: none;
+  padding: 5px 12px;
+  font-size: 16px;
+  float: right;
+  margin: 18px 5%;
+}
+.manage-user-footer-left{
+  width: 46%;
+    float: left;
+    margin: 0px 2%;
+}
+.manage-user-footer-right{
+  width: 42%;
+    float: left;
+    margin: 0px 4%;
+}
+.manage-user-footer-left p, .manage-user-footer-right p{
+ margin: 0;
+ padding: 0;
+}
+.manage-user-footer-left h6, .manage-user-footer-right h6{
+  margin: 0;
+  padding: 0;
+  font-size:14px
+ }
+.page-container hr{
+  margin: 5px;
+  background: #000000;
+}

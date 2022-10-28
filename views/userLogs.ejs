@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+  <% include partials/header %>
+  <% include partials/menu %>
+    <div class="section-container page-container">
+
+      <h3 id="userRole">FMT User Activity Logs</h3>
+      <div id="userLogs" class="tabcontent">
+        <table id="userLogsData" class="display" style="width:100%">
+          <thead>
+            <tr>
+              <th>Admin User Name</th>
+              <th>Role</th>
+              <th>Date</th>
+              <th>Edit - Section Path</th>
+              <th>Edit - Field & Description</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+    </div>
+
+</body>
+<% include partials/script %>
+<script src="javascripts/userLogs.js"></script>
+</html>

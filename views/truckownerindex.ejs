@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+ 
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+</head>
+<body>
+<% include partials/header %>
+<% include partials/menu %>
+
+<div class="section-container truckowner-index"> 
+  <div class="container1">
+    <div id="totalTruckOwners" class="truck-owner-head row">
+      <div class="card col">
+        <p>Total Truck Owners</p>
+        <h5>-</h5>
+      </div>  
+      <div class="card col">
+        <p>Truck Owners without Drivers</p>
+        <h5>-</h5>
+      </div> 
+      <div class="card col">
+        <p>Incomplete Profiles</p>
+        <h5>-</h5>
+      </div>
+    </div> 
+  </div> 
+   <h3 id="userRole" class="headingProfile">List of <span></span></h3>
+   <button id="add_btn" type="button"  class="btn btn-info btn-lg addBtn">ADD</button>
+
+  <div id="TruckDetails" class="tabcontent">
+    <table id="TruckDetailsData" class="display" style="width:100%">
+      <thead>
+        <tr>
+            <th>Stars</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Trucks</th>
+            <th>Company</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Verified</th>
+            <th>Trips</th>
+            <th>Member Since</th>
+            <th>Status</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+  </table>
+  </div>
+  
+</div>
+
+
+<div class="modal fade " id="addProfile" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create Profile</h4>
+      </div>
+      <div class="modal-body">
+        <form id="formsubmit" onsubmit='return onSubmit(this)'>
+          <input name='name' type="text" placeholder='Enter Name' required><br>
+          <input type="text" value="+91" class="disabled-input" disabled>
+          <input class="enabled-textbox" name='phone_number' placeholder='Phone Number' oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="10" maxlength="10" type="number" required>
+          <input type="text" value="+91" class="disabled-input" disabled>
+          <input class="enabled-textbox" name='alternate_ph_no' placeholder='Alternate Phone Number' oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="10" maxlength="10" type="number">
+          <input name='preferred_location' placeholder='Preferred Location' required><br>
+          <select name="preferred_language" id="preferred_language" required>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="mr">Marathi</option>
+          </select><br>
+          <input name='address' placeholder='Address' required><br>
+          <input name='state_code' placeholder='State Code'><br>
+          <input name='pin_code' placeholder='Pin Code' type="number"><br>
+          <input name='email_id' placeholder='Email' type="email"><br>
+          <button type='submit'>Submit</button>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+    
+  </div>
+</div>
+</body>
+<% include partials/script %>
+<script src="javascripts/truckownerindex.js"></script>
+
+</html>

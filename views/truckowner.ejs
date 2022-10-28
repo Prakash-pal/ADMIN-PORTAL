@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/header %>
+    <% include partials/menu %>
+
+      <div class="section-container truckowner-details">
+        <div class="container">
+          <div id="TruckOwnerDetailsC" class="truck-owner-head row">
+            <div class="truck-owner-details col">
+
+              <h3>
+                <%= name %>
+              </h3>
+              <h4 id="userRole">Role: <label></label></h4>
+              <h6 id="memberSince">Member Since: <label></label></h6>
+            </div>
+            <div class="card col">
+              <p>Active Bids</p>
+              <h5>-</h5>
+            </div>
+            <div class="card col">
+              <p>Delivered</p>
+              <h5>-</h5>
+            </div>
+            <div class="card col">
+              <p>Trucks</p>
+              <h5>-</h5>
+            </div>
+            <div class="card col">
+              <p>Drivers</p>
+              <h5>-</h5>
+            </div>
+            <div class="card col">
+              <p>SP Rev.</p>
+              <h5>-</h5>
+            </div>
+            <div class="card col">
+              <p>FMT Rev.</p>
+              <h5>-</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab truckownerTab">
+          <button id="profileClick" class="tablinks"
+            onclick="getTruckClick(event, 'PersonalDetails', '<%= userId %>')">Personal Details</button>
+          <button id="firmClick" class="tablinks" onclick="getTruckClick(event, 'FirmDetails', '<%= userId %>')">Firm
+            Details</button>
+          <button id="bankClick" class="tablinks" onclick="getTruckClick(event, 'BankDetails', '<%= userId %>')">Bank
+            Details</button>
+          <button id="truckClick" class="tablinks truckDetailsTab"
+            onclick="getTruckClick(event, 'TruckDetails', '<%= userId %>')">Truck Details</button>
+          <button id="driverClick" class="tablinks driverDetailsTab"
+            onclick="getTruckClick(event, 'DriverDetails', '<%= userId %>')">Driver Details</button>
+          <button type="button" class="btn btn-info btn-lg addBtn" style="display: none;">ADD</button>
+
+        </div>
+        <div id="PersonalDetails" class="tabcontent">
+          <table id="PersonalDetailsData" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>Stars</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Phone Number</th>
+                <th>Alternate Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Pin Code</th>
+                <th>KYC Adhar</th>
+                <th>KYC Pan</th>
+                <th>Status</th>
+                <th>Delete</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
+        <div id="FirmDetails" class="tabcontent">
+          <table id="FirmDetailsData" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>Company Name</th>
+                <th>Company Type</th>
+                <th>GST Number</th>
+                <th>PAN Number</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
+        <div id="BankDetails" class="tabcontent">
+          <table id="BankDetailsData" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>Bank Name</th>
+                <th>A/C Number</th>
+                <th>IFSC Code</th>
+                <th>Cancelled Check</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div id="TruckDetails" class="tabcontent">
+          <table id="TruckDetailsData" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>Vehicle Number</th>
+                <th>Body Type</th>
+                <th>Load Type</th>
+                <th>RC Book</th>
+                <th>Insurence</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div id="DriverDetails" class="tabcontent">
+          <table id="DriverDetailsData" class="display" style="width:100%">
+            <thead>
+              <tr>
+                <th>Stars</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Alternate Number</th>
+                <th>Driver License</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
+
+      <!-- Firm details popup -->
+      <div class="modal fade " id="firmDetails" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Create Firm Details</h4>
+            </div>
+            <div class="modal-body">
+              <form class="formsubmit" onsubmit='return onFirmDetailsSubmit(this)'>
+                <input name='company_name' type="text" placeholder='Company Name' required><br>
+                <input name='company_pan' placeholder='Company Pan' required><br>
+                <input name='comp_state' placeholder='Company State'><br>
+                <input name='comp_city' placeholder='Company City'><br>
+                <input name='comp_zip' placeholder='Company Zip'><br>
+                <input name='comp_add' placeholder='Company Address'><br>
+                <input name='company_gst_no' placeholder='Company GST NO'><br>
+
+                <input name='company_type' placeholder='Company Type' required><br>
+                <button type='submit'>Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Bank details popup -->
+      <div class="modal fade " id="bankDetails" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Bank Details</h4>
+            </div>
+            <div class="modal-body">
+              <form class="formsubmit" onsubmit='return onBankDetailsSubmit(this)'>
+                <input name='accountholder_name' type="text" placeholder='Accountholder Name' required><br>
+                <input name='account_number' placeholder='Account Number' required><br>
+                <input name='IFSI_CODE' placeholder='IFSI CODE' required><br>
+                <input name='bank_name' placeholder='Bank Name' required><br>
+                <button type='submit'>Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Truck details popup -->
+      <div class="modal fade " id="truckDetails" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Truck Details</h4>
+            </div>
+            <div class="modal-body">
+              <form class="formsubmit" onsubmit='return onTruckDetailsSubmit(this)'>
+                <input name='vehicle_no' type="text" placeholder='Vehicle No' required><br>
+                <!-- <input name='truck_type' placeholder='Truck Type' required><br> -->
+                <select name="truck_type" id="truck_type">
+                  <option value="array_load_type_container">Trailers Dala Body</option>
+                  <option value="array_load_type_trailers_flat_bed">Trailers Flat Bed</option>
+                  <option value="array_load_type_open_body">Open Body</option>
+                  <option value="array_load_type_trailers_dala_body">Container</option>
+                  <option value="array_load_type_tanker">Tanker</option>
+                  <option value="array_load_type_tipper">Tipper</option>
+                  <option value="array_load_type_bulker">Bulker</option>
+                  <option value="array_load_type_lcv_open_body">LCV Open Body</option>
+                  <option value="array_load_type_lcv_container">LCV Container</option>
+                  <option value="array_load_type_mini">Mini</option>
+                  <option value="array_load_type_pickUp">PickUp</option>
+                </select>
+
+
+                <select name="truck_carrying_capacity" id="truck_carrying_capacity" required>
+                  <option value="array_load_type_container">7.5 tons 14 feet</option>
+                  <option value="array_load_type_container">7.5 tons 17 feet</option>
+                  <option value="array_load_type_container">7.5 tons 19 feet</option>
+                  <option value="array_load_type_container">7.5 tons 20 feet</option>
+                  <option value="array_load_type_container">7.5 tons 22 feet</option>
+                  <option value="array_load_type_container">7.5 tons 24 feet</option>
+                  <option value="array_load_type_container">7.5 tons 32 feet</option>
+                  <option value="array_load_type_container">9 tons 14 feet</option>
+                  <option value="array_load_type_container">9 tons 17 feet</option>
+                  <option value="array_load_type_container">9 tons 19 feet</option>
+                  <option value="array_load_type_container">9 tons 20 feet</option>
+                  <option value="array_load_type_container">9 tons 22 feet</option>
+                  <option value="array_load_type_container">9 tons 24 feet</option>
+                  <option value="array_load_type_container">9 tons 30 feet</option>
+                  <option value="array_load_type_container">9 tons 34 feet</option>
+                  <option value="array_load_type_container">14.5 tons 32 feet</option>
+                  <option value="array_load_type_container">15 tons 30 feet</option>
+                  <option value="array_load_type_container">15 tons 32 feet</option>
+                  <option value="array_load_type_container">18 tons 30 feet</option>
+                  <option value="array_load_type_container">18 tons 32 feet</option>
+                  <option value="array_load_type_container">19 tons 30 feet</option>
+                  <option value="array_load_type_container">19 tons 32 feet</option>
+                  <option value="array_load_type_container">20 tons 30 feet</option>
+                  <option value="array_load_type_container">20 tons 32 feet</option>
+                  <option value="array_load_type_container">20 tons 40 feet</option>
+                  <option value="array_load_type_container">24 tons 30 feet</option>
+                  <option value="array_load_type_container">24 tons 32 feet</option>
+                  <option value="array_load_type_container">25 tons 25 feet</option>
+                  <option value="array_load_type_container">25 tons 30 feet</option>
+                  <option value="array_load_type_container">25 tons 31 feet</option>
+                  <option value="array_load_type_container">25 tons 32 feet</option>
+                  <option value="array_load_type_container">25 tons 40 feet</option>
+                  <option value="array_load_type_container">30 tons 30 feet</option>
+                  <option value="array_load_type_container">30 tons 32 feet</option>
+                  <option value="array_load_type_container">30 tons 40 feet</option>
+
+                  <option value="array_load_type_lcv_container">6 tons 14 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 15 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 16 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 17 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 20 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 21 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 22 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 23 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 24 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 25 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 26 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 27 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 28 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 30 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 31 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 32 feet</option>
+                  <option value="array_load_type_lcv_container">6 tons 34 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 14 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 15 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 16 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 17 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 20 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 21 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 22 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 23 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 24 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 25 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 26 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 27 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 28 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 30 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 31 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 32 feet</option>
+                  <option value="array_load_type_lcv_container">7 tons 34 feet</option>
+
+                  <option value="array_load_type_tanker">8 tons 6 tyres</option>
+                  <option value="array_load_type_tanker">10 tons 6 tyres</option>
+                  <option value="array_load_type_tanker">16 tons 10 tyres</option>
+                  <option value="array_load_type_tanker">18 tons 10 tyres</option>
+                  <option value="array_load_type_tanker">19 tons 10 tyres</option>
+                  <option value="array_load_type_tanker">21 tons 12 tyres</option>
+                  <option value="array_load_type_tanker">24 tons 12 tyres</option>
+                  <option value="array_load_type_tanker">25 tons 12 tyres</option>
+                  <option value="array_load_type_tanker">26 tons 14 tyres</option>
+                  <option value="array_load_type_tanker">29 tons 14 tyres</option>
+                  <option value="array_load_type_tanker">30 tons 14 tyres</option>
+                  <option value="array_load_type_tanker">35 tons 16 tyres</option>
+                  <option value="array_load_type_tanker">36 tons 16 tyres</option>
+
+                  <option value="array_load_type_tipper">9 tons 6 tyres</option>
+                  <option value="array_load_type_tipper">15 tons 10 tyres</option>
+                  <option value="array_load_type_tipper">16 tons 10 tyres</option>
+                  <option value="array_load_type_tipper">18 tons 10 tyres</option>
+                  <option value="array_load_type_tipper">19 tons 10 tyres</option>
+                  <option value="array_load_type_tipper">25 tons 12 tyres</option>
+                  <option value="array_load_type_tipper">29 tons 14 tyres</option>
+                  <option value="array_load_type_tipper">30 tons 14 tyres</option>
+
+                  <option value="array_load_type_mini">Mini Truck Tata Ace(0.75 tons)</option>
+                  <option value="array_load_type_mini">Mini Truck Tata Ace(1 tons)</option>
+
+                  <option value="array_load_type_pickUp">PickUp Truck dost(1.5 tons)</option>
+                  <option value="array_load_type_pickUp">PickUp Truck dost(2 tons)</option>
+
+
+                  <option value="array_load_type_bulker">21 tons 12 tyres</option>
+                  <option value="array_load_type_bulker">24 tons 12 tyres</option>
+                  <option value="array_load_type_bulker">25 tons 12 tyres</option>
+                  <option value="array_load_type_bulker">29 tons 14 tyres</option>
+                  <option value="array_load_type_bulker">30 tons 14 tyres</option>
+
+                  <option value="array_load_type_lcv_open_body">2.5 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">3 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">3.5 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">4 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">4.5 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">5 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">5.5 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">6 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">6 tons 6 tyres</option>
+                  <option value="array_load_type_lcv_open_body">7 tons 4 tyres</option>
+                  <option value="array_load_type_lcv_open_body">7 tons 6 tyres</option>
+
+                  <option value="array_load_type_open_body">7.5 tons 6 tyres</option>
+                  <option value="array_load_type_open_body">8 tons 6 tyres</option>
+                  <option value="array_load_type_open_body">9 tons 6 tyres</option>
+                  <option value="array_load_type_open_body">10 tons 6 tyres</option>
+                  <option value="array_load_type_open_body">12 tons 6 tyres</option>
+                  <option value="array_load_type_open_body">15 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">16 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">18 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">18.5 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">19 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">19 tons 6 tyres</option>
+                  <option value="array_load_type_open_body">20 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">20 tons 12 tyres</option>
+                  <option value="array_load_type_open_body">21 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">21 tons 12 tyres</option>
+                  <option value="array_load_type_open_body">22 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">22 tons 12 tyres</option>
+                  <option value="array_load_type_open_body">24 tons 12 tyres</option>
+                  <option value="array_load_type_open_body">25 tons 10 tyres</option>
+                  <option value="array_load_type_open_body">25 tons 12 tyres</option>
+                  <option value="array_load_type_open_body">26 tons 12 tyres</option>
+                  <option value="array_load_type_open_body">29 tons 14 tyres</option>
+                  <option value="array_load_type_open_body">30 tons 14 tyres</option>
+                  <option value="array_load_type_open_body">33 tons 12 tyres</option>
+                  <option value="array_load_type_open_body">35 tons 14 tyres</option>
+                  <option value="array_load_type_open_body">35 tons 16 tyres</option>
+                  <option value="array_load_type_open_body">35 tons 18 tyres</option>
+                  <option value="array_load_type_open_body">36 tons 16 tyres</option>
+                  <option value="array_load_type_open_body">38 tons 18 tyres</option>
+                  <option value="array_load_type_open_body">43 tons 14 tyres</option>
+
+                  <option value="array_load_type_trailers_dala_body">22 tons</option>
+                  <option value="array_load_type_trailers_dala_body">25 tons</option>
+                  <option value="array_load_type_trailers_dala_body">26 tons</option>
+                  <option value="array_load_type_trailers_dala_body">27 tons</option>
+                  <option value="array_load_type_trailers_dala_body">28 tons</option>
+                  <option value="array_load_type_trailers_dala_body">29 tons</option>
+                  <option value="array_load_type_trailers_dala_body">30 tons</option>
+                  <option value="array_load_type_trailers_dala_body">31 tons</option>
+                  <option value="array_load_type_trailers_dala_body">32 tons</option>
+                  <option value="array_load_type_trailers_dala_body">33 tons</option>
+                  <option value="array_load_type_trailers_dala_body">34 tons</option>
+                  <option value="array_load_type_trailers_dala_body">35 tons</option>
+                  <option value="array_load_type_trailers_dala_body">36 tons</option>
+                  <option value="array_load_type_trailers_dala_body">37 tons</option>
+                  <option value="array_load_type_trailers_dala_body">38 tons</option>
+                  <option value="array_load_type_trailers_dala_body">39 tons</option>
+                  <option value="array_load_type_trailers_dala_body">40 tons</option>
+                  <option value="array_load_type_trailers_dala_body">41 tons</option>
+                  <option value="array_load_type_trailers_dala_body">42 tons</option>
+                  <option value="array_load_type_trailers_dala_body">43 tons</option>
+
+                  <option value="array_load_type_trailers_flat_bed">16 tons 19 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">16 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">17 tons 19 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">17 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">18 tons 19 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">18 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">19 tons 19 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">19 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">21 tons 19 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">21 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">22 tons 19 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">22 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">23 tons 19 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">23 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">24 tons 19 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">24 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">25 tons 29 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">25 tons 34 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">25 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">26 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">27 tons 21 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">27 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">28 tons 35 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">28 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">29 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">29 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">30 tons 30 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">30 tons 35 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">30 tons 38 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">30 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">31 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">31 tons 42 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">32 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">33 tons 35 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">33 tons 38 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">33 tons 39 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">33 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">33 tons 41 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">34 tons 20 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">34 tons 35 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">34 tons 38 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">34 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">34 tons 42 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">35 tons 35 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">35 tons 36 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">35 tons 38 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">35 tons 39 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">35 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">35 tons 41 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">35 tons 44 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">40 tons 38 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">40 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">40 tons 41 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">40 tons 42 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">40 tons 43 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">41 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">42 tons 38 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">42 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">42 tons 42 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">43 tons 32 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">43 tons 38 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">43 tons 40 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">43 tons 42 feet</option>
+                  <option value="array_load_type_trailers_flat_bed">43 tons 43 feet</option>
+                </select>
+
+
+                <!-- <input name='truck_carrying_capacity' placeholder='Truck Carrying Capacity' required><br> -->
+                <button type='submit'>Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Driver details popup -->
+      <div class="modal fade " id="driverDetails" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Driver Details</h4>
+            </div>
+            <div class="modal-body">
+              <form class="formsubmit" onsubmit='return onDriverDetailsSubmit(this)'>
+                <input name='truck_id' type="text" placeholder='Truck Id' required><br>
+                <input name='driver_name' placeholder='Driver Name' required><br>
+                <input name='driver_number' placeholder='Driver Number' type="number" required><br>
+                <input name='alternate_ph_no' placeholder='Alternate Phone Number' type="number" required><br>
+                <input name='dl_number' placeholder='DL Number' required><br>
+                <button type='submit'>Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- View Image popup -->
+      <div class="modal fade " id="imagePreview" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Preview</h4>
+            </div>
+            <div class="modal-body">
+              <img  alt="preview image" style="width: 100%;">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- uploadImage popup -->
+      <div class="modal fade " id="uploadImage" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Upload</h4>
+            </div>
+            <div class="modal-body">
+              <form class="formsubmit" id="uploadImageForm">
+                <div class="alert"></div>
+                <div id='img_contain'><img id="blah" align='middle' src="" alt="your image" title=''/></div> 
+                <div class="input-group"> 
+                <div class="custom-file">
+                <input type="file" id="inputGroupFile01" class="imgInp custom-file-input" aria-describedby="inputGroupFileAddon01">
+                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+              </div>
+            </div>
+            </form>
+            <button id="uploadImageSubmit" type='submit'>Submit</button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+</body>
+<% include partials/script %>
+  <script src="./javascripts/truckowner.js"></script>
+
+</html>

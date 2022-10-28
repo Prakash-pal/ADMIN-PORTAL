@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+
+</head>
+
+<body>
+  <% include partials/header %>
+    <% include partials/menu %>
+
+      <div class="section-container dashboard-container">
+        <div class="container1">
+          <div class="dashboard-header">
+            <div class="dashboard-header-container">
+              <div class="dashboard-header-head">
+                <span>
+                  <img alt="profile" src="img/profile_icon.png">
+                </span>
+                <label>Profile Count</label>
+              </div>
+              <hr>
+              <ul id="profileDetails" class="dashboard-header-section">
+                <li>
+                  <span></span>
+                  <label>Truck Owners</label>
+                </li>
+                <li>
+                  <span></span>
+                  <label>Brokers</label>
+                </li>
+                <li>
+                  <span></span>
+                  <label>Drivers</label>
+                </li>
+                <li>
+                  <span></span>
+                  <label>Load Poster</label>
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
+          <div class="dashboard-header">
+            <div class="dashboard-header-container">
+              <div class="dashboard-header-head">
+                <span>
+                  <img alt="profile" src="img/profile_icon.png">
+                </span>
+                <label>Platform Revenue</label>
+              </div>
+              <hr>
+              <ul id="platformRevenueDetails" class="dashboard-header-section">
+                <li>
+                  <span></span>
+                  <label>Through the platform</label>
+                </li>
+                <li>
+                  <span></span>
+                  <label>Ad Revenue</label>
+                </li>
+                <li>
+                  <span></span>
+                  <label>Commission from Load Posters</label>
+                </li>
+                <li>
+                  <span></span>
+                  <label>Commission from Transporters</label>
+                 </li>
+
+              </ul>
+
+            </div>
+          </div>
+          <div class="dashboard-header">
+            <div class="dashboard-header-container">
+              <div class="dashboard-header-head">
+                <span>
+                  <img alt="profile" src="img/profile_icon.png">
+                </span>
+                <label>Loads & KM</label>
+              </div>
+              <hr>
+              <ul id="loadKmDetails" class="dashboard-header-section">
+                <li>
+                  <span></span>
+                  <label>Load Posted</label>
+                </li>
+                <li>
+                  <span></span>
+                  <label>Load Delivered</label>
+                </li>
+                <li>
+                  <span>-</span>
+                  <label></label>
+                </li>
+                <li>
+                  <span></span>
+                  <label>Cities / Locations</label>
+                </li>
+
+              </ul>
+
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="dashboard-section">
+          <div class="dashboard-section-tabs">
+            <div class="tabs active" id="profileTab">
+              <span>
+                <img alt="profile" src="img/profile_icon.png">
+              </span>
+              <label>Profiles</label>
+            </div>
+            <div class="tabs" id="revenueTab">
+              <span>
+                <img alt="profile" src="img/profile_icon.png">
+              </span>
+              <label>Revenue</label>
+            </div>
+            <div class="tabs" id="loadsCityTab">
+              <span>
+                <img alt="profile" src="img/profile_icon.png">
+              </span>
+              <label>Loads & Cities</label>
+            </div>
+            <div class="tabs" id="kmTab">
+              <span>
+                <img alt="profile" src="img/profile_icon.png">
+              </span>
+              <label>KM</label>
+            </div>
+            <select  id="selectYear">
+              <option value="2022">Year 2022</option>
+              <option value="2021">Year 2021</option>
+              <option value="2020">Year 2020</option>
+            </select>
+            <select id="selectQtr">
+              <option value="qtr1">Qtr1</option>
+              <option value="qtr2">Qtr2</option>
+              <option value="qtr3" selected>Qtr3</option>
+              <option value="qtr4">Qtr4</option>
+
+            </select>
+          </div>
+
+        </div>
+        <div id="columnchart_material" style="height: 300px; position: relative;"></div>
+
+      </div>
+</body>
+<% include partials/script %>
+  <script src="javascripts/dashboard.js"></script>
+
+</html>

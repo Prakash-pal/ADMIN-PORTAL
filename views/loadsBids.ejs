@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+<% include partials/header %>
+<% include partials/menu %>
+
+<div class="section-container truckowner-index"> 
+  <div class="container">
+    <div id="totalTruckOwners" class="truck-owner-head row">
+      <div class="card col">
+        <p>Active Loads & Bids</p>
+        <h5 id="activeLoads">-</h5>
+      </div>  
+      <div class="card col">
+        <p>Loads Expired</p>
+        <h5 id="loadExpaired">-</h5>
+      </div> 
+    </div> 
+  </div> 
+   <h3 class="title">Loads</h3>
+   <div class="tab truckownerTab">
+    <button id="activeLoadsClick" class="tablinks active" onclick="onClickLoadTab(event, 'activeLoads')">Active Loads</button>
+    <button id="acceptedLoadsClick" class="tablinks" onclick="onClickLoadTab(event, 'acceptedLoads')">Accepted Loads</button>
+    <button id="allLoadsClick" class="tablinks" onclick="onClickLoadTab(event, 'allLoads')">Withdrawn/Expired</button>
+    <!-- <button id="historyLoadsClick" class="tablinks" onclick="onClickLoadTab(event, 'historyLoads')">History</button> -->
+  </div>
+  <div id="loadDetails" class="tabcontent">
+    <table id="loadDetailsData" class="display" style="width:100%">
+      <thead>
+        <tr>
+            <th>Tracking #</th>
+            <th>Status</th>
+            <th>Date Posted</th>
+            <th>Time Left</th>
+            <th>Load Poster</th>
+            <th>Phone Number</th>
+            <th>Pick-Up City</th>
+            <th>Drop City</th>
+            <th>Budget</th>
+            <th>KM</th>
+            <th>Pick-Up Time</th>
+            <th>Truck Type</th>
+            <th>Body Type</th>
+            <th>Notes / Material</th>
+            <th>Payment Method</th>
+            <th>FMT %</th>
+            <th>Pick-Up Address</th>
+            <th>Drop Address</th>
+            
+        </tr>
+    </thead>
+  </table>
+  </div>
+  
+</div>
+</body>
+<% include partials/script %>
+<script src="javascripts/loadsBids.js"></script>
+</html>

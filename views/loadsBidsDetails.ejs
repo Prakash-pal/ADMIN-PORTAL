@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+<% include partials/header %>
+<% include partials/menu %>
+
+<div class="section-container truckowner-index"> 
+  <div class="container">
+    <div id="totalTruckOwners" class="truck-owner-head row">
+      <div class="card col">
+        <p>Active Loads & Bids</p>
+        <h5>50</h5>
+      </div>  
+      <div class="card col">
+        <p>Loads Expired</p>
+        <h5>-</h5>
+      </div> 
+    </div> 
+  </div> 
+   <h3>Load Details:<span id="loadDetailsId"> Tracking# <label></label></span></h3>
+  <div id="loadDetails" class="tabcontent">
+    <table id="loadDetailsData" class="display" style="width:100%">
+      <thead>
+        <tr>
+            <th>Tracking # Trip id</th>
+            <th>Date Posted</th>
+            <th>Time Left</th>
+            <th>Load Poster</th>
+            <th>Star</th>
+            <th>Phone Number</th>
+            <th>Pick-Up City</th>
+            <th>Drop City</th>
+            <th>Budget</th>
+            <th>KM</th>
+            <th>Pick-Up Time</th>
+            <th>Truck Type</th>
+            <th>Body Type</th>
+            <th>Notes / Material</th>
+            <th>Payment Method</th>
+            <th>Platform Fee</th>
+            <th>Pick-Up Address</th>
+            <th>Drop Address</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+  </table>
+  </div>
+  <h3>Bidders Response</h3>
+  <div id="postDetails" class="tabcontent">
+    <table id="postDetailsData" class="display" style="width:100%">
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Star</th>
+            <th>Role</th>
+            <th>Phone Number</th>
+            <th>First Quote</th>
+            <th>Final Quote</th>
+            <th>Truck Number</th>
+            <th>Truck Type</th>
+            <th>Body Type</th>
+            <th>Notes</th>
+            <th>Driver Name</th>
+            <th>Driver Number</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+  </table>
+  </div>
+</div>
+</body>
+<% include partials/script %>
+<script src="javascripts/loadsBidsDetails.js"></script>
+</html>
